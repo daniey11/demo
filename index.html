@@ -87,14 +87,21 @@
     }
 
     #yesBtn {
-      left: 18%;
+      left: 14%;
       background: var(--yes);
       color: #fff;
     }
     #yesBtn:hover { background: var(--yesHover); }
 
+    #maybeBtn {
+      left: 46%;
+      background: var(--yes);
+      color: #fff;
+    }
+    #maybeBtn:hover { background: var(--yesHover); }
+
     #noBtn {
-      left: 62%;
+      left: 78%;
       background: #e5e7eb;
       color: #111827;
     }
@@ -142,6 +149,7 @@
 
     <div class="button-zone" id="zone">
       <button id="yesBtn">Yes</button>
+      <button id="maybeBtn">Maybe</button>
       <button id="noBtn">No</button>
     </div>
 
@@ -159,6 +167,7 @@
     const conf = window.confetti ? confetti.create(canvas, { resize: true }) : null;
 
     const yesBtn = document.getElementById('yesBtn');
+    const maybeBtn = document.getElementById('maybeBtn');
     const noBtn = document.getElementById('noBtn');
     const zone = document.getElementById('zone');
     const result = document.getElementById('result');
@@ -168,6 +177,10 @@
       if (conf) {
         conf({ particleCount: 120, spread: 160, origin: { y: 0.4 } });
       }
+    });
+
+    maybeBtn.addEventListener('click', () => {
+      window.location.href = 'try-again.html';
     });
 
     // make the "No" button evade the pointer / finger
